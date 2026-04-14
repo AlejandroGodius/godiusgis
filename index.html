@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Godius GIS — Guest Intelligence System · La inteligencia que tu hotel necesita</title>
+<meta name="description" content="GIS es el sistema de inteligencia exterior que ningún PMS cubre. Reputación, competencia, demanda, pricing y visibilidad — todo en una pantalla con IA.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FDFAF6;
+    --bg-warm:#F7F3EE;
+    --bg-dark:#1C1917;
+    --charcoal:#1C1917;
+    --charcoal-mid:#44403C;
+    --charcoal-soft:#78716C;
+    --cta:#E86A2E;
+    --cta-hover:#D45A1F;
+    --terracotta:#C4623A;
+    --accent:#6366F1;
+    --cream:#EDE6DB;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'DM Sans',sans-serif;color:var(--charcoal);background:var(--bg)}
+  .font-serif{font-family:'Cormorant Garamond',Georgia,serif}
+  .cta-btn{
+    background:var(--cta);color:white;
+    padding:16px 32px;border-radius:12px;
+    font-weight:600;font-size:16px;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:all 0.3s;
+    box-shadow:0 4px 24px rgba(232,106,46,0.25);
+  }
+  .cta-btn:hover{background:var(--cta-hover);transform:translateY(-2px);box-shadow:0 8px 32px rgba(232,106,46,0.35)}
+  .cta-secondary{
+    background:transparent;color:var(--charcoal);
+    padding:16px 32px;border-radius:12px;
+    font-weight:500;font-size:16px;
+    border:1.5px solid rgba(28,25,23,0.15);
+    display:inline-flex;align-items:center;gap:8px;
+    transition:all 0.3s;
+  }
+  .cta-secondary:hover{border-color:var(--cta);color:var(--cta)}
+  .section{padding:100px 24px}
+  .section-dark{background:var(--bg-dark);color:#F1F5F9}
+  .container{max-width:1200px;margin:0 auto}
+  .pain-card{
+    background:white;border:1px solid rgba(28,25,23,0.08);
+    border-radius:16px;padding:32px;
+    transition:all 0.3s;
+  }
+  .pain-card:hover{border-color:var(--cta);box-shadow:0 8px 32px rgba(232,106,46,0.08)}
+  .pillar-card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;padding:32px;
+    transition:all 0.3s;
+  }
+  .pillar-card:hover{border-color:rgba(99,102,241,0.3);background:rgba(255,255,255,0.08)}
+  .step-number{
+    width:48px;height:48px;border-radius:50%;
+    background:var(--cta);color:white;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;font-size:20px;
+    box-shadow:0 4px 16px rgba(232,106,46,0.25);
+  }
+  .replace-card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:12px;padding:24px;text-align:center;
+  }
+  .grain{
+    position:fixed;top:0;left:0;width:100%;height:100%;
+    pointer-events:none;opacity:0.03;z-index:9999;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+  @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+  .fade-up{animation:fadeUp 0.8s ease forwards;opacity:0}
+  .fade-up-1{animation-delay:0.1s}
+  .fade-up-2{animation-delay:0.2s}
+  .fade-up-3{animation-delay:0.3s}
+  .fade-up-4{animation-delay:0.4s}
+  html{scroll-behavior:smooth}
+</style>
+</head>
+<body>
+
+<!-- GRAIN TEXTURE -->
+<div class="grain"></div>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav class="fixed top-0 w-full z-50 backdrop-blur-xl bg-[#FDFAF6]/80 border-b border-black/5">
+  <div class="container flex items-center justify-between py-4 px-6">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold">G</div>
+      <span class="font-semibold text-lg tracking-tight">Godius <span class="text-indigo-500">GIS</span></span>
+    </div>
+    <div class="hidden md:flex items-center gap-8 text-sm text-[#78716C]">
+      <a href="#problema" class="hover:text-[#1C1917] transition">El problema</a>
+      <a href="#que-es" class="hover:text-[#1C1917] transition">Qué es GIS</a>
+      <a href="#demo" class="hover:text-[#1C1917] transition">Ver demo</a>
+      <a href="#como-funciona" class="hover:text-[#1C1917] transition">Cómo funciona</a>
+    </div>
+    <a href="#contacto" class="cta-btn" style="padding:10px 24px;font-size:14px">Agenda tu consulta</a>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="section pt-32 md:pt-40 pb-16 relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-indigo-100/40 to-transparent rounded-full blur-3xl"></div>
+  <div class="container relative">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="fade-up fade-up-1 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-sm font-medium mb-8">
+        <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+        Creadores de una nueva categoría hotelera
+      </div>
+      <h1 class="fade-up fade-up-2 font-serif text-5xl md:text-7xl font-400 leading-[1.1] mb-6 tracking-tight">
+        Tu competencia se llena<br>
+        <span class="italic text-indigo-500">y no sabes por qué</span>
+      </h1>
+      <p class="fade-up fade-up-3 text-lg md:text-xl text-[#78716C] max-w-2xl mx-auto leading-relaxed mb-10">
+        Cada mañana, los grandes hoteles revisan reputación, precios de competidores, eventos de la ciudad y tendencias de demanda. Tú abres Booking, miras tu rating, y decides con el estómago. <strong class="text-[#44403C]">GIS cambia eso.</strong>
+      </p>
+      <div class="fade-up fade-up-4 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#contacto" class="cta-btn">Quiero ver mi hotel en GIS →</a>
+        <a href="https://godius-gis-demo.vercel.app" target="_blank" class="cta-secondary">Ver demo en vivo ↗</a>
+      </div>
+    </div>
+
+    <!-- TRUST STRIP -->
+    <div class="fade-up fade-up-4 mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-[#78716C]">
+      <span class="flex items-center gap-2">
+        <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+        Sin compromiso
+      </span>
+      <span class="flex items-center gap-2">
+        <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+        Activo en 48 horas
+      </span>
+      <span class="flex items-center gap-2">
+        <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+        Cero integración técnica con tu hotel
+      </span>
+      <span class="flex items-center gap-2">
+        <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+        Hecho a medida para tu hotel
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SOCIAL PROOF BANNER ═══════════ -->
+<section class="py-6 bg-[#1C1917] text-white">
+  <div class="container text-center">
+    <p class="text-sm md:text-base font-medium tracking-wide opacity-80">
+      Hilton tiene un equipo de 5 personas y 6 herramientas para saber lo que tú vas a ver <strong class="text-indigo-400">cada mañana en una sola pantalla.</strong>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════ PAIN / PROBLEM ═══════════ -->
+<section class="section bg-[#F7F3EE]" id="problema">
+  <div class="container">
+    <div class="text-center mb-16">
+      <p class="text-sm font-semibold text-[#E86A2E] uppercase tracking-widest mb-4">El problema que nadie nombra</p>
+      <h2 class="font-serif text-4xl md:text-5xl tracking-tight">Tu PMS gestiona lo de dentro.<br><span class="italic text-[#78716C]">¿Quién gestiona lo de fuera?</span></h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="pain-card">
+        <div class="text-3xl mb-4">😤</div>
+        <h3 class="font-semibold text-lg mb-2">"Mi competencia se llena y no sé por qué"</h3>
+        <p class="text-[#78716C] text-sm leading-relaxed">Casa Pestagua subió precios $45 y está sold out. Tú sigues a tu tarifa habitual sin saber que hay un festival este fin de semana.</p>
+      </div>
+      <div class="pain-card">
+        <div class="text-3xl mb-4">😡</div>
+        <h3 class="font-semibold text-lg mb-2">"Una reseña negativa lleva 3 días sin responder"</h3>
+        <p class="text-[#78716C] text-sm leading-relaxed">Un huésped se quejó del aire acondicionado en Booking. No lo viste. Otros 200 turistas sí lo leyeron antes de reservar.</p>
+      </div>
+      <div class="pain-card">
+        <div class="text-3xl mb-4">🤷</div>
+        <h3 class="font-semibold text-lg mb-2">"Hay un festival este finde y mi competencia subió precios 18%. Yo no."</h3>
+        <p class="text-[#78716C] text-sm leading-relaxed">5.000 personas llegan a tu ciudad. 3 de 5 competidores están sold out. Tú tienes habitaciones vacías al precio de siempre.</p>
+      </div>
+      <div class="pain-card">
+        <div class="text-3xl mb-4">😩</div>
+        <h3 class="font-semibold text-lg mb-2">"Cada mañana abro Booking, Google, Trip, Airbnb... y no saco nada claro"</h3>
+        <p class="text-[#78716C] text-sm leading-relaxed">30 minutos saltando entre plataformas para mirar ratings, revisar reseñas y espiar precios. Y aun así te falta contexto.</p>
+      </div>
+      <div class="pain-card">
+        <div class="text-3xl mb-4">💸</div>
+        <h3 class="font-semibold text-lg mb-2">"Estoy un 12% más barato que mi competencia y no lo sabía"</h3>
+        <p class="text-[#78716C] text-sm leading-relaxed">Tus habitaciones podrían costar $30 más por noche. Pero sin datos, decides "por intuición" y dejas dinero en la mesa cada día.</p>
+      </div>
+      <div class="pain-card border-2 border-[#E86A2E]/20 bg-[#E86A2E]/5">
+        <div class="text-3xl mb-4">🔍</div>
+        <h3 class="font-semibold text-lg mb-2">¿Te identificas con alguno?</h3>
+        <p class="text-[#78716C] text-sm leading-relaxed mb-4">Estos problemas existen porque ninguna herramienta los unifica. Tu PMS gestiona habitaciones y reservas. Pero la reputación, la competencia, los eventos y la demanda — eso es lo de fuera. Y hasta ahora, nadie lo gestionaba.</p>
+        <a href="#que-es" class="text-[#E86A2E] font-semibold text-sm">Hasta ahora →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ QUÉ ES GIS ═══════════ -->
+<section class="section" id="que-es">
+  <div class="container">
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <p class="text-sm font-semibold text-indigo-500 uppercase tracking-widest mb-4">Una nueva categoría</p>
+      <h2 class="font-serif text-4xl md:text-5xl tracking-tight mb-6">Guest Intelligence System</h2>
+      <p class="text-lg text-[#78716C] leading-relaxed">
+        GIS es la capa de inteligencia exterior que tu hotel necesita. No reemplaza tu PMS — lo complementa. Tu PMS mira hacia dentro (habitaciones, reservas, check-in). <strong class="text-[#44403C]">GIS mira hacia fuera</strong>: qué dicen tus huéspedes, qué hace tu competencia, qué eventos mueven demanda, y dónde estás perdiendo dinero.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+      <div class="text-center p-8 rounded-2xl bg-indigo-50/50 border border-indigo-100/50">
+        <div class="text-4xl font-serif font-bold text-indigo-500 mb-2">G</div>
+        <div class="font-semibold text-lg mb-1">Guest</div>
+        <p class="text-sm text-[#78716C]">Todo gira alrededor de lo que tu huésped dice, busca y espera</p>
+      </div>
+      <div class="text-center p-8 rounded-2xl bg-indigo-50/50 border border-indigo-100/50">
+        <div class="text-4xl font-serif font-bold text-indigo-500 mb-2">I</div>
+        <div class="font-semibold text-lg mb-1">Intelligence</div>
+        <p class="text-sm text-[#78716C]">IA que convierte datos en decisiones. No dashboards que acumulan números</p>
+      </div>
+      <div class="text-center p-8 rounded-2xl bg-indigo-50/50 border border-indigo-100/50">
+        <div class="text-4xl font-serif font-bold text-indigo-500 mb-2">S</div>
+        <div class="font-semibold text-lg mb-1">System</div>
+        <p class="text-sm text-[#78716C]">Automatizado, en tiempo real, trabajando 24/7 para que tú no tengas que hacerlo</p>
+      </div>
+    </div>
+    <div class="text-center mt-12">
+      <p class="text-sm text-[#78716C]">Y sí — las tres letras están dentro de <strong class="text-indigo-500">God<span class="underline decoration-indigo-500/50">ius</span></strong>. No es casualidad.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 6 PILLARS (DARK) ═══════════ -->
+<section class="section section-dark" id="pilares">
+  <div class="container">
+    <div class="text-center mb-16">
+      <p class="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">Lo que ves cada mañana</p>
+      <h2 class="font-serif text-4xl md:text-5xl tracking-tight">6 pilares de inteligencia<br><span class="italic text-slate-400">en una sola pantalla</span></h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="pillar-card">
+        <div class="text-2xl mb-3">⭐</div>
+        <h3 class="font-semibold text-lg mb-2 text-white">Reputación en vivo</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">Ratings de Google, Booking y TripAdvisor actualizados. Reseñas pendientes de responder con respuesta IA lista para copiar. Sentiment analysis por categoría. Detección de patrones operativos.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="text-2xl mb-3">📈</div>
+        <h3 class="font-semibold text-lg mb-2 text-white">Competencia y pricing</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">Precios de tus competidores en todas las OTAs, en tiempo real. Sold-outs, cambios de tarifa, benchmark de rating. Recomendación IA de cuánto cobrar y por qué.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="text-2xl mb-3">🔥</div>
+        <h3 class="font-semibold text-lg mb-2 text-white">Demanda y mercado</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">Eventos, festivales, conciertos que mueven demanda. Vuelos llegando al aeropuerto. Google Trends de tu destino. Noticias relevantes con impacto en turismo.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="text-2xl mb-3">🔍</div>
+        <h3 class="font-semibold text-lg mb-2 text-white">Visibilidad y SEO</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">Tu posición en Google Maps vs competencia por keyword. Estado de tu ficha Google Business. Fotos, tasa de respuesta, ranking en OTAs — todo comparado.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="text-2xl mb-3">🤖</div>
+        <h3 class="font-semibold text-lg mb-2 text-white">Insights IA ejecutivos</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">Cada mañana, un briefing IA con las oportunidades y alertas del día. Sin abrir 5 plataformas. Recomendaciones priorizadas. Reporte semanal auto-generado.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="text-2xl mb-3">🔔</div>
+        <h3 class="font-semibold text-lg mb-2 text-white">Alertas personalizables</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">16 tipos de alerta que tú configuras: reseña negativa, cambio de precio rival, evento de alto impacto, caída en Google Maps. Por email o Telegram, al instante.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ DEMO PREVIEW ═══════════ -->
+<section class="section" id="demo">
+  <div class="container text-center">
+    <p class="text-sm font-semibold text-indigo-500 uppercase tracking-widest mb-4">Míralo en acción</p>
+    <h2 class="font-serif text-4xl md:text-5xl tracking-tight mb-6">Esto es lo que verías cada mañana</h2>
+    <p class="text-lg text-[#78716C] max-w-2xl mx-auto mb-10">Dashboard de un hotel boutique en Cartagena con datos reales de mercado. Navega por las 7 pestañas y explora cada pilar de inteligencia.</p>
+    <a href="https://godius-gis-demo.vercel.app" target="_blank" class="inline-block rounded-2xl overflow-hidden border-2 border-black/10 shadow-2xl hover:shadow-3xl transition-all hover:-translate-y-1 max-w-4xl mx-auto">
+      <div class="bg-[#030508] p-4 md:p-8">
+        <div class="bg-[#030508] rounded-xl border border-white/10 p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold">G</div>
+            <div class="text-left">
+              <div class="text-xs text-indigo-400 font-semibold">GODIUS GIS</div>
+              <div class="text-white text-sm font-medium">Hotel Villa Índigo · Cartagena</div>
+            </div>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5 text-left">
+            <div class="text-xs text-indigo-400 font-semibold mb-2">BRIEFING IA · HOY</div>
+            <p class="text-white text-lg font-semibold mb-2">Buenos días Carlos. Tu hotel tiene 3 oportunidades y 1 alerta crítica hoy.</p>
+            <p class="text-slate-400 text-sm">Festival "Cartagena es Magia" mañana. Tu competencia subió 18%. Reseña 2⭐ sin responder. Rating Google subió a 4.6...</p>
+          </div>
+          <div class="mt-4 text-center">
+            <span class="text-indigo-400 text-sm font-medium">Click para explorar el dashboard completo →</span>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════ WHAT IT REPLACES ═══════════ -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="text-center mb-16">
+      <p class="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-4">La verdad incómoda</p>
+      <h2 class="font-serif text-4xl md:text-5xl tracking-tight">Las grandes cadenas pagan +$60.000/año<br><span class="italic text-slate-400">por saber lo que tú vas a ver cada mañana</span></h2>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto mb-12">
+      <div class="replace-card">
+        <div class="text-xs text-slate-500 mb-1">Revenue Manager</div>
+        <div class="text-white font-medium text-sm">Recomendaciones de pricing</div>
+        <div class="text-xs text-slate-500 mt-2">Cadenas: $40-80K/año (persona)</div>
+      </div>
+      <div class="replace-card">
+        <div class="text-xs text-slate-500 mb-1">Rate Shopper (Lighthouse)</div>
+        <div class="text-white font-medium text-sm">Precios competencia en vivo</div>
+        <div class="text-xs text-slate-500 mt-2">Cadenas: $100-300/mes</div>
+      </div>
+      <div class="replace-card">
+        <div class="text-xs text-slate-500 mb-1">Reputation Manager (TrustYou)</div>
+        <div class="text-white font-medium text-sm">Reseñas + sentiment IA</div>
+        <div class="text-xs text-slate-500 mt-2">Cadenas: $100-300/mes</div>
+      </div>
+      <div class="replace-card">
+        <div class="text-xs text-slate-500 mb-1">Market Intelligence (STR)</div>
+        <div class="text-white font-medium text-sm">Benchmark vs mercado</div>
+        <div class="text-xs text-slate-500 mt-2">Cadenas: $300-800/mes</div>
+      </div>
+      <div class="replace-card">
+        <div class="text-xs text-slate-500 mb-1">Demand Forecast (PredictHQ)</div>
+        <div class="text-white font-medium text-sm">Eventos + demanda</div>
+        <div class="text-xs text-slate-500 mt-2">Cadenas: $200-500/mes</div>
+      </div>
+      <div class="replace-card">
+        <div class="text-xs text-slate-500 mb-1">BI Dashboard (Tableau)</div>
+        <div class="text-white font-medium text-sm">Todo unificado</div>
+        <div class="text-xs text-slate-500 mt-2">Cadenas: $500-2.000 setup</div>
+      </div>
+    </div>
+    <div class="text-center">
+      <p class="text-2xl md:text-3xl font-serif text-white mb-3">GIS te da todo esto.</p>
+      <p class="text-lg text-slate-400 mb-2">En una pantalla. Con inteligencia artificial. Sin contratar a nadie.</p>
+      <p class="text-sm text-slate-500">Diseñado para hoteles boutique e independientes que compiten contra las grandes cadenas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HOW IT WORKS ═══════════ -->
+<section class="section" id="como-funciona">
+  <div class="container">
+    <div class="text-center mb-16">
+      <p class="text-sm font-semibold text-[#E86A2E] uppercase tracking-widest mb-4">Así de simple</p>
+      <h2 class="font-serif text-4xl md:text-5xl tracking-tight">Activo en 48 horas.<br><span class="italic text-[#78716C]">Sin tocar nada de tu hotel.</span></h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-4xl mx-auto">
+      <div class="text-center">
+        <div class="step-number mx-auto mb-6">1</div>
+        <h3 class="font-semibold text-lg mb-2">Hablamos 15 minutos</h3>
+        <p class="text-sm text-[#78716C] leading-relaxed">Nos cuentas quiénes son tus competidores, qué te quita el sueño, y qué quieres saber cada mañana. Nosotros configuramos todo.</p>
+      </div>
+      <div class="text-center">
+        <div class="step-number mx-auto mb-6">2</div>
+        <h3 class="font-semibold text-lg mb-2">Activamos tu GIS</h3>
+        <p class="text-sm text-[#78716C] leading-relaxed">En 48 horas tu dashboard está vivo con datos reales de tu hotel, tu competencia y tu mercado. Sin integración con tu PMS. Sin instalar nada.</p>
+      </div>
+      <div class="text-center">
+        <div class="step-number mx-auto mb-6">3</div>
+        <h3 class="font-semibold text-lg mb-2">Tomas mejores decisiones</h3>
+        <p class="text-sm text-[#78716C] leading-relaxed">Cada mañana recibes el briefing IA. Sabes qué hacer antes de que tu competencia sepa qué pasó. Tú controlas, los datos hablan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ IMAGINE (cierre neuroventa) ═══════════ -->
+<section class="section bg-[#F7F3EE]">
+  <div class="container max-w-3xl mx-auto text-center">
+    <h2 class="font-serif text-4xl md:text-5xl tracking-tight mb-8">Imagina esto</h2>
+    <div class="space-y-6 text-left max-w-2xl mx-auto">
+      <div class="flex items-start gap-4">
+        <span class="text-[#E86A2E] text-xl mt-1">→</span>
+        <p class="text-lg text-[#44403C] leading-relaxed">Son las 7 de la mañana. Abres el móvil y lees: <em>"Hoy hay un festival en tu ciudad. Tu competencia subió precios un 18%. 3 de 5 rivales están sold out. Sube tu tarifa a $225 y captura $1.200 extra este fin de semana."</em></p>
+      </div>
+      <div class="flex items-start gap-4">
+        <span class="text-[#E86A2E] text-xl mt-1">→</span>
+        <p class="text-lg text-[#44403C] leading-relaxed">Abres el dashboard. Ves que un huésped dejó una reseña de 2 estrellas hace 2 horas. La respuesta IA ya está lista. La copias, la pegas en Booking, y el problema está gestionado antes del desayuno.</p>
+      </div>
+      <div class="flex items-start gap-4">
+        <span class="text-[#E86A2E] text-xl mt-1">→</span>
+        <p class="text-lg text-[#44403C] leading-relaxed">Al final de la semana, tu rating subió 0.1. Tu precio está alineado con el mercado. Respondiste el 95% de las reseñas. Y no dedicaste ni 10 minutos al día a gestionar nada de esto.</p>
+      </div>
+    </div>
+    <p class="mt-10 text-xl font-serif text-[#44403C]"><strong>Eso es GIS.</strong> La inteligencia que antes solo podían permitirse los grandes.</p>
+  </div>
+</section>
+
+<!-- ═══════════ FINAL CTA ═══════════ -->
+<section class="section section-dark" id="contacto">
+  <div class="container max-w-2xl mx-auto text-center">
+    <h2 class="font-serif text-4xl md:text-5xl tracking-tight mb-6">¿Quieres ver tu hotel<br><span class="italic text-indigo-400">en una pantalla como esta?</span></h2>
+    <p class="text-lg text-slate-400 mb-4">Hablamos 15 minutos. Tú nos cuentas tu hotel, nosotros te enseñamos qué vería tu GIS con datos reales de tu mercado.</p>
+    <p class="text-sm text-slate-500 mb-10">Sin compromiso. Sin tarjeta. Sin letra pequeña.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="https://godius.io" class="cta-btn text-lg px-10 py-5">Agenda tu consulta gratuita →</a>
+    </div>
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500">
+      <span>15 minutos</span>
+      <span>·</span>
+      <span>Videollamada o teléfono</span>
+      <span>·</span>
+      <span>Si no te convence, no pasa nada</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="py-8 border-t border-black/5">
+  <div class="container flex flex-col md:flex-row items-center justify-between gap-4 px-6">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-sm font-bold">G</div>
+      <span class="font-medium text-sm">Godius GIS · Guest Intelligence System</span>
+    </div>
+    <div class="flex items-center gap-6 text-sm text-[#78716C]">
+      <a href="https://godius-gis-demo.vercel.app" target="_blank" class="hover:text-[#1C1917] transition">Ver demo</a>
+      <a href="https://godius.io" target="_blank" class="hover:text-[#1C1917] transition">godius.io</a>
+    </div>
+    <p class="text-xs text-[#78716C]">Creadores de la categoría GIS · Cartagena, Colombia</p>
+  </div>
+</footer>
+
+</body>
+</html>
