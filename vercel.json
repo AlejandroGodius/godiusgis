@@ -1,4 +1,22 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/demo",
+      "destination": "https://godius-dashboard.vercel.app/demo"
+    },
+    {
+      "source": "/demo/:path*",
+      "destination": "https://godius-dashboard.vercel.app/demo/:path*"
+    },
+    {
+      "source": "/_next/:path*",
+      "destination": "https://godius-dashboard.vercel.app/_next/:path*"
+    },
+    {
+      "source": "/api/gis/:path*",
+      "destination": "https://godius-dashboard.vercel.app/api/gis/:path*"
+    }
+  ]
 }
