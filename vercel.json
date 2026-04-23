@@ -17,6 +17,18 @@
     {
       "source": "/api/gis/:path*",
       "destination": "https://godius-dashboard.vercel.app/api/gis/:path*"
+    },
+    {
+      "source": "/contacto",
+      "destination": "https://godius-dashboard.vercel.app/contacto"
+    },
+    {
+      "source": "/contacto/:path*",
+      "destination": "https://godius-dashboard.vercel.app/contacto/:path*"
+    },
+    {
+      "source": "/api/leads",
+      "destination": "https://godius-dashboard.vercel.app/api/leads"
     }
   ]
 }
