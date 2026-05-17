@@ -29,6 +29,22 @@
     {
       "source": "/api/leads",
       "destination": "https://godius-dashboard.vercel.app/api/leads"
+    },
+    {
+      "source": "/hotelmireia",
+      "destination": "https://godius-dashboard.vercel.app/gis/hotelmireia"
+    },
+    {
+      "source": "/hotelmireia/:path*",
+      "destination": "https://godius-dashboard.vercel.app/gis/hotelmireia/:path*"
+    },
+    {
+      "source": "/apmadrid",
+      "destination": "https://godius-dashboard.vercel.app/gis/apmadrid"
+    },
+    {
+      "source": "/apmadrid/:path*",
+      "destination": "https://godius-dashboard.vercel.app/gis/apmadrid/:path*"
     }
   ]
 }
